@@ -29,7 +29,8 @@ jobs:
         run: |
            ls -r .
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Windows
           path: edbg.exe
@@ -61,7 +62,8 @@ jobs:
         run: |
           ls -r .
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Linux-amd64
           path: edbg
@@ -96,7 +98,8 @@ jobs:
         run: |
            ls -r .
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: macOS
           path: edbg
