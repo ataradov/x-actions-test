@@ -6,7 +6,8 @@
 
 int main(void)
 {
-  printf("Hello, world! Version '%s'\n", VERSION);
+  printf("CMSIS-DAP SWD programmer %s, built " __DATE__ " " __TIME__ " \n\n", VERSION);
+
   return 0;
 }
 

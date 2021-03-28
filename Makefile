@@ -1,4 +1,5 @@
 COMPILER ?= gcc
+VERSION ?= git
 UNAME ?= $(shell uname)
 
 SRCS = \
@@ -25,6 +26,7 @@ else
 endif
 
 CFLAGS += -W -Wall -Wextra -O3 -std=gnu11
+CFLAGS += -DVERSION=\"$(VERSION)\"
 #CFLAGS += -fno-diagnostics-show-caret
 
 all: $(BIN)
