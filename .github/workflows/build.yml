@@ -1,6 +1,13 @@
 name: Build
 
 on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag Name'
+        required: true
+        default: 'YYYYMMDD'
+
   push:
   pull_request:
 
@@ -112,19 +119,11 @@ jobs:
 #          asset_name: edbg-macos
 #          tag: version-${{ github.run_number }}
 
-on:
-  workflow_dispatch:
-    inputs:
-      tag_name:
-        description: 'Tag Name'
-        required: true
-        default: 'YYYYMMDD'
-
-jobs:
-  make-release:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "Tag Name: ${{ github.event.inputs.tag_name }}"
+#jobs:
+#  make-release:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - run: |
+#        echo "Tag Name: ${{ github.event.inputs.tag_name }}"
 
 
