@@ -37,7 +37,7 @@ jobs:
           asset_name: edbg-windows
           tag: ${{ github.run_number }}
 
-  build-ubuntu:
+  build-linux:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
