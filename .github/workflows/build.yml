@@ -29,40 +29,40 @@ jobs:
         with:
           name: Windows
           path: edbg.exe
-     - name: Upload Binary
-       uses: svenstaro/upload-release-action@v2
-       with:
-         repo_token: ${{ secrets.GITHUB_TOKEN }}
-         file: edbg.exe
-         asset_name: edbg-windows
-         tag: ${{ github.run_number }}
+      - name: Upload Binary
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: edbg.exe
+          asset_name: edbg-windows
+          tag: ${{ github.run_number }}
 
   build-ubuntu:
     runs-on: ubuntu-18.04
     steps:
-     - name: Checkout
-       uses: actions/checkout@v1
-     - name: Install requirements
-       run: |
-         sudo apt-get -y update
-         sudo apt-get -y install libudev-dev
-     - name: Compile
-       run: |
-         make all
-     - name: List Results
-       run: |
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install requirements
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install libudev-dev
+      - name: Compile
+        run: |
+          make all
+      - name: List Results
+        run: |
           ls -r .
-     - uses: actions/upload-artifact@v2
-       with:
-         name: Linux-amd64
-         path: edbg
-     - name: Upload Binary
-       uses: svenstaro/upload-release-action@v2
-       with:
-         repo_token: ${{ secrets.GITHUB_TOKEN }}
-         file: edbg
-         asset_name: edbg-linux
-         tag: ${{ github.run_number }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Linux-amd64
+          path: edbg
+      - name: Upload Binary
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: edbg
+          asset_name: edbg-linux
+          tag: ${{ github.run_number }}
 
 #  build-macos:
 #    runs-on: macOS-latest
@@ -85,12 +85,12 @@ jobs:
 #        with:
 #          name: macOS
 #          path: edbg
-#     - name: Upload Binary
-#       uses: svenstaro/upload-release-action@v2
-#       with:
-#         repo_token: ${{ secrets.GITHUB_TOKEN }}
-#         file: edbg
-#         asset_name: edbg-macos
-#         tag: ${{ github.run_number }}
+#      - name: Upload Binary
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          file: edbg
+#          asset_name: edbg-macos
+#          tag: ${{ github.run_number }}
 
 
