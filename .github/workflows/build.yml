@@ -35,7 +35,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: edbg.exe
           asset_name: edbg-windows
-          tag: ${{ github.run_number }}
+          tag: version-${{ github.run_number }}
 
   build-linux:
     runs-on: ubuntu-18.04
@@ -62,7 +62,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: edbg
           asset_name: edbg-linux
-          tag: ${{ github.run_number }}
+          tag: version-${{ github.run_number }}
 
 #  build-macos:
 #    runs-on: macOS-latest
@@ -91,6 +91,6 @@ jobs:
 #          repo_token: ${{ secrets.GITHUB_TOKEN }}
 #          file: edbg
 #          asset_name: edbg-macos
-#          tag: ${{ github.run_number }}
+#          tag: version-${{ github.run_number }}
 
 
