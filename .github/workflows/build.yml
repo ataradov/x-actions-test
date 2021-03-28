@@ -35,13 +35,13 @@ jobs:
           name: Windows
           path: edbg.exe
 
-      - name: Upload Binary
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: edbg.exe
-          asset_name: edbg-windows
-          tag: version-${{ github.run_number }}
+#      - name: Upload Binary
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          file: edbg.exe
+#          asset_name: edbg-windows
+#          tag: version-${{ github.run_number }}
 
   build-linux:
     runs-on: ubuntu-18.04
@@ -68,13 +68,13 @@ jobs:
           name: Linux-amd64
           path: edbg
 
-      - name: Upload Binary
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: edbg
-          asset_name: edbg-linux
-          tag: version-${{ github.run_number }}
+#      - name: Upload Binary
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          file: edbg
+#          asset_name: edbg-linux
+#          tag: version-${{ github.run_number }}
 
   build-macos:
     runs-on: macOS-latest
@@ -104,12 +104,27 @@ jobs:
           name: macOS
           path: edbg
 
-      - name: Upload Binary
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: edbg
-          asset_name: edbg-macos
-          tag: version-${{ github.run_number }}
+#      - name: Upload Binary
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          file: edbg
+#          asset_name: edbg-macos
+#          tag: version-${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag Name'
+        required: true
+        default: 'YYYYMMDD'
+
+jobs:
+  make-release:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Tag Name: ${{ github.event.inputs.tag_name }}"
 
 
